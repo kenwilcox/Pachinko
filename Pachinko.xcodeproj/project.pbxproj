@@ -26,6 +26,8 @@
 		BECD95CB1C114C1F00BA05D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BECD95CE1C114C1F00BA05D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BECD95D01C114C1F00BA05D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BECD95D61C114D2300BA05D6 /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
+		BECD95D71C114D2300BA05D6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +44,8 @@
 		BECD95B41C114C1F00BA05D6 = {
 			isa = PBXGroup;
 			children = (
+				BECD95D61C114D2300BA05D6 /* LICENSE.md */,
+				BECD95D71C114D2300BA05D6 /* README.md */,
 				BECD95BF1C114C1F00BA05D6 /* Pachinko */,
 				BECD95BE1C114C1F00BA05D6 /* Products */,
 			);
