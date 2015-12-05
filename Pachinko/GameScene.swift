@@ -18,6 +18,12 @@ class GameScene: SKScene {
     background.zPosition = -1
     addChild(background)
     physicsBody = SKPhysicsBody(edgeLoopFromRect: frame)
+    
+    makeBouncerAt(CGPoint(x: 0, y: 0))
+    makeBouncerAt(CGPoint(x: 256, y: 0))
+    makeBouncerAt(CGPoint(x: 512, y: 0))
+    makeBouncerAt(CGPoint(x: 768, y: 0))
+    makeBouncerAt(CGPoint(x: 1024, y: 0))
   }
   
   override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -34,5 +40,13 @@ class GameScene: SKScene {
   
   override func update(currentTime: CFTimeInterval) {
     /* Called before each frame is rendered */
+  }
+  
+  func makeBouncerAt(position: CGPoint) {
+    let bouncer = SKSpriteNode(imageNamed: "bouncer")
+    bouncer.position = position
+    bouncer.physicsBody = SKPhysicsBody(circleOfRadius: bouncer.size.width / 2.0)
+    bouncer.physicsBody!.dynamic = false
+    addChild(bouncer)
   }
 }
