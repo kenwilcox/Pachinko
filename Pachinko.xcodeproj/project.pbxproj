@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BEA05A7E1C168C51001C700E /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA05A7D1C168C51001C700E /* Helper.swift */; };
 		BECD95C11C114C1F00BA05D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECD95C01C114C1F00BA05D6 /* AppDelegate.swift */; };
 		BECD95C31C114C1F00BA05D6 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = BECD95C21C114C1F00BA05D6 /* GameScene.sks */; };
 		BECD95C51C114C1F00BA05D6 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECD95C41C114C1F00BA05D6 /* GameScene.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BEA05A7D1C168C51001C700E /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		BECD95BD1C114C1F00BA05D6 /* Pachinko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pachinko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BECD95C01C114C1F00BA05D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BECD95C21C114C1F00BA05D6 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				BECD95DA1C12B1E100BA05D6 /* FireParticles.sks */,
 				BECD95C41C114C1F00BA05D6 /* GameScene.swift */,
 				BECD95C61C114C1F00BA05D6 /* GameViewController.swift */,
+				BEA05A7D1C168C51001C700E /* Helper.swift */,
 				BECD95C81C114C1F00BA05D6 /* Main.storyboard */,
 				BECD95CB1C114C1F00BA05D6 /* Assets.xcassets */,
 				BECD95DC1C12B1EB00BA05D6 /* spark.png */,
@@ -157,6 +160,7 @@
 				BECD95C51C114C1F00BA05D6 /* GameScene.swift in Sources */,
 				BECD95C71C114C1F00BA05D6 /* GameViewController.swift in Sources */,
 				BECD95C11C114C1F00BA05D6 /* AppDelegate.swift in Sources */,
+				BEA05A7E1C168C51001C700E /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +310,7 @@
 				BECD95D51C114C1F00BA05D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
