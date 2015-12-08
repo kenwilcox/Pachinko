@@ -10,6 +10,14 @@ import SpriteKit
 
 class GameScene: SKScene {
   
+  var scoreLabel: SKLabelNode!
+  
+  var score: Int = 0 {
+    didSet {
+      scoreLabel.text = "Score: \(score)"
+    }
+  }
+  
   override func didMoveToView(view: SKView) {
     /* Setup your scene here */
     let background = SKSpriteNode(imageNamed: "background.jpg")
@@ -30,6 +38,12 @@ class GameScene: SKScene {
     makeBouncerAt(CGPoint(x: 512, y: 0))
     makeBouncerAt(CGPoint(x: 768, y: 0))
     makeBouncerAt(CGPoint(x: 1024, y: 0))
+    
+    scoreLabel = SKLabelNode(fontNamed: "Chalkduster")
+    scoreLabel.text = "Score: 0"
+    scoreLabel.horizontalAlignmentMode = .Right
+    scoreLabel.position = CGPoint(x: 980, y: 700)
+    addChild(scoreLabel)
   }
   
   override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -90,8 +104,10 @@ class GameScene: SKScene {
   func collisionBetweenBall(ball: SKNode, object: SKNode) {
     if object.name == "good" {
       destroyBall(ball)
+      ++score
     } else if object.name == "bad" {
       destroyBall(ball)
+      --score
     }
   }
   
