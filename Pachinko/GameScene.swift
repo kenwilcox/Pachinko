@@ -74,15 +74,23 @@ class GameScene: SKScene {
         editingMode = !editingMode
       } else {
         if editingMode {
-          let size = CGSize(width: GKRandomDistribution(lowestValue: 16, highestValue: 128).nextInt(), height: 16)
-          let box = SKSpriteNode(color: Random.color(), size: size)
-          box.zRotation = Random.cgFloat(min: 0, max: 3)
-          box.position = location
           
-          box.physicsBody = SKPhysicsBody(rectangleOfSize: box.size)
-          box.physicsBody!.dynamic = false
-          
-          addChild(box)
+          // Remove the obstacle if they touch it
+          if objects.contains(nodeAtPoint(location)) && nodeAtPoint(location).name == "box"{
+            nodeAtPoint(location).removeFromParent()
+          } else {
+            
+            let size = CGSize(width: GKRandomDistribution(lowestValue: 16, highestValue: 128).nextInt(), height: 16)
+            let box = SKSpriteNode(color: Random.color(), size: size)
+            box.zRotation = Random.cgFloat(min: 0, max: 3)
+            box.position = location
+            
+            box.physicsBody = SKPhysicsBody(rectangleOfSize: box.size)
+            box.physicsBody!.dynamic = false
+            box.name = "box"
+            
+            addChild(box)
+          }
         } else {
           let ball = SKSpriteNode(imageNamed: "ballRed")
           ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2.0)
