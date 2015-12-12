@@ -92,10 +92,13 @@ class GameScene: SKScene {
             addChild(box)
           }
         } else {
-          let ball = SKSpriteNode(imageNamed: "ballRed")
+          let name = getRandomName()
+          let ball = SKSpriteNode(imageNamed: name)
           ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2.0)
           ball.physicsBody!.contactTestBitMask = ball.physicsBody!.collisionBitMask
           ball.physicsBody!.restitution = 0.4
+//          ball.physicsBody!.angularVelocity = 0.1
+//          ball.physicsBody!.angularDamping = 0.1
           ball.position = location
           ball.name = "ball"
           addChild(ball)
@@ -106,6 +109,22 @@ class GameScene: SKScene {
   
   override func update(currentTime: CFTimeInterval) {
     /* Called before each frame is rendered */
+  }
+  
+  func getRandomName() -> String {
+    var ret: String
+    let r = Random.int(min: 1, max: 7)
+    switch(r) {
+    case 1: ret = "ballBlue"
+    case 2: ret = "ballCyan"
+    case 3: ret = "ballGreen"
+    case 4: ret = "ballGrey"
+    case 5: ret = "ballPurple"
+    case 6: ret = "ballYellow"
+    default:
+      ret = "ballRed"
+    }
+    return ret
   }
   
   func makeBouncerAt(position: CGPoint) {
