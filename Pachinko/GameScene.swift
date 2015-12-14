@@ -61,6 +61,15 @@ class GameScene: SKScene {
     editLabel.text = "Edit"
     editLabel.position = CGPoint(x: 80, y: 700)
     addChild(editLabel)
+    
+    let line = SKShapeNode()
+    let path = CGPathCreateMutable()
+    CGPathMoveToPoint(path, nil, 0, 600)
+    CGPathAddLineToPoint(path, nil, 1024, 600)
+    CGPathCloseSubpath(path)
+    line.path = path
+    line.strokeColor = UIColor.redColor()
+    addChild(line)
   }
   
   override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -92,16 +101,18 @@ class GameScene: SKScene {
             addChild(box)
           }
         } else {
-          let name = getRandomName()
-          let ball = SKSpriteNode(imageNamed: name)
-          ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2.0)
-          ball.physicsBody!.contactTestBitMask = ball.physicsBody!.collisionBitMask
-          ball.physicsBody!.restitution = 0.4
+          if location.y > 610 {
+            let name = getRandomName()
+            let ball = SKSpriteNode(imageNamed: name)
+            ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2.0)
+            ball.physicsBody!.contactTestBitMask = ball.physicsBody!.collisionBitMask
+            ball.physicsBody!.restitution = 0.4
 //          ball.physicsBody!.angularVelocity = 0.1
 //          ball.physicsBody!.angularDamping = 0.1
-          ball.position = location
-          ball.name = "ball"
-          addChild(ball)
+            ball.position = location
+            ball.name = "ball"
+            addChild(ball)
+          }
         }
       }
     }
