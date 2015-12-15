@@ -13,6 +13,7 @@ class GameScene: SKScene {
   
   var scoreLabel: SKLabelNode!
   var editLabel: SKLabelNode!
+  var windOn = false
   
   var score: Int = 0 {
     didSet {
@@ -70,6 +71,8 @@ class GameScene: SKScene {
     line.path = path
     line.strokeColor = UIColor.redColor()
     addChild(line)
+    
+    makeFanAt(CGPoint(x: -50, y:400), isGood: true)
   }
   
   override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -120,6 +123,23 @@ class GameScene: SKScene {
   
   override func update(currentTime: CFTimeInterval) {
     /* Called before each frame is rendered */
+    if (windOn)
+    {
+      for case let child as SKSpriteNode in self.children as [SKNode]
+      {
+        if let body = child.physicsBody
+        {
+          if let node = body.node! as SKNode!
+          {
+            if node.name == "ball" {
+              if node.position.y > 400 && node.position.y < 600 {
+                node.physicsBody?.applyForce(CGVector(dx: 100, dy:0))
+              }
+            }
+          }
+        }
+      }
+    }
   }
   
   func getRandomName() -> String {
@@ -173,6 +193,24 @@ class GameScene: SKScene {
     let spin = SKAction.rotateByAngle(CGFloat(M_PI_2), duration: 10)
     let spinForever = SKAction.repeatActionForever(spin)
     slotGlow.runAction(spinForever)
+  }
+  
+  func makeFanAt(position: CGPoint, isGood: Bool) {
+    var slotGlow: SKSpriteNode
+    
+    if isGood {
+      slotGlow = SKSpriteNode(imageNamed: "slotGlowGood")
+    } else {
+      slotGlow = SKSpriteNode(imageNamed: "slotGlowBad")
+    }
+    
+    slotGlow.position = position
+    addChild(slotGlow)
+    
+    let spin = SKAction.rotateByAngle(CGFloat(-M_PI_2), duration: 0.5)
+    let spinForever = SKAction.repeatActionForever(spin)
+    slotGlow.runAction(spinForever)
+    windOn = true
   }
   
   func collisionBetweenBall(ball: SKNode, object: SKNode) {
